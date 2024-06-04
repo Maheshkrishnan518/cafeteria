@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar</title>
+  <link rel="stylesheet" href="add.css" />
+  <body>
+    <nav class="navbar">
+      
+      <div class="navbar-container container">
+        <ul class="menu-items">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="manage-menu.html">Manage Menu</a></li>
+          <li><a href="orders.html">Orders</a></li>
+          <li><a href="review.html">Review</a></li>
+          <!-- <li><a href="#">Rating</a></li> -->
+          <li><a href="admin-login.html">Logout</a></li>
+        </ul>
+        <h1 class="logo">Cafeteria</h1>
+      </div>
+    </nav>
+
+    <div class="wrapper">
+      <div class="title">Add Item</div>
+      <div class="form">
+        <div class="inputfield">
+          <label>Item Name</label>
+          <input type="text" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>Amount</label>
+          <input type="number" class="input" />
+        </div>
+        <div class="inputfield">
+          <label>Description</label>
+          <textarea class="textarea"></textarea>
+        </div>
+
+        <div class="inputfield">
+        <label>Type</label>
+        <select>
+          <option>--select one--</option>
+          <option>Veg</option>
+          <option>Non-Veg</option>
+          <option>Beverages</option>
+          <option>Others</option>
+
+
+        </select>        
+      </div>
+
+        <div class="inputfield">
+          <!-- <form action="/action_page.php"> -->
+            <label>Image</label>
+            <input type="file" id="myFile" name="filename" />
+          </form>
+        </div>
+
+        <!-- <div class="inputfield terms">
+          <label class="check">
+            <input type="checkbox" />
+            <span class="checkmark"></span>
+          </label>
+          <p>Completly filled</p>
+        </div> -->
+        <div class="inputfield">
+          <input type="submit" value="Submit" class="btn" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

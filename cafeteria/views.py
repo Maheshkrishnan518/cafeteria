@@ -19,6 +19,9 @@ def caf(request):
     else:  
         form = CafeteriaForm()  
     return render(request,'index.html',{'form':form})  
+def home(request):
+    cafeteria = Cafeteria.objects.all()  
+    return render(request,"home.html",{'cafeteria':cafeteria}) 
 def show(request):
     cafeteria = Cafeteria.objects.all()  
     return render(request,"show.html",{'cafeteria':cafeteria})  

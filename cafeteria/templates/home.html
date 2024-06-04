@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>SAMPLE CAFERETIA</title>
+  {% load static %} 
+  <link  href="{% static 'css/home.css' %}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap" rel="stylesheet">
+   
+ <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+  :root{
+      /* --main-color: #d3ad7f; */
+      --black: #13131a;
+      --bg: #010103;
+      --border: .2rem solid rgba(255,255,255,.3);
+     }
+  
+  
+  * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+  }
+  body {
+      width:100%;
+      height:100vh;
+  }
+  
+  .header {
+      border:1px solid black;
+      width:100%;
+      height:max-content;
+      max-height:300px;
+      bockground-position:center;
+      background-size:cover;
+      color: rgba(255,255,255,1);
+      font-family: "Roboto", sans-serif;
+      /* -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif */
+  }
+  
+  
+  @media screen and (min-width: 620px) {
+  
+  .nav-menu .menu {
+      width:95%;
+      height: 50px;
+      display:flex;
+      flex-direction:row;
+      flex-wrap:wrap;
+      justify-content:left;
+      align-items:end;
+      margin-left: 5px;
+      margin-top: 25px;
+      position: fixed; 
+  }
+  
+  .header .logo {
+      font-size: 50px;
+      font-weight:800;
+      padding-left: 5px;
+      display: inline;
+      text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(56, 55, 55);
+      
+  }
+  
+  
+  
+  .nav-menu .menu ul {
+      list-style:none;
+      display:flex;
+      height:100%;
+     
+  }
+  .nav-menu .menu ul li a {
+      text-decoration:none;
+      color: rgba(255,255,255,1);
+      padding: 1em 1.5em;
+      line-height: 1px;
+      font-size:15px;
+      text-transform: uppercase;
+      
+  }
+  .nav-menu .menu li a:hover,
+  .nav-menu .menu li a.active {
+      border:2px solid white;
+      border-radius: 5px;
+  }
+  
+  
+  
+  .banner {
+      height: 400px;
+      width: 60%;
+      text-align: center;
+      margin: 13% auto;
+      font-family: "Roboto", sans-serif;
+      color: rgb(255, 255, 255);
+      text-shadow: 1px 1px 2px black, 0 0 25px rgb(78, 78, 95), 0 0 5px rgb(62, 62, 63);
+     
+  }
+  .banner h1 {
+      font-size: 60px;
+      font-weight:bold;
+  
+  }
+  
+  
+  
+  }
+  /* menu start */
+  
+  
+  *{
+        font-family: "Roboto", sans-serif;
+        margin:0;padding:0;
+        box-sizing: border-box;
+        text-decoration: none;
+        text-transform: capitalize;
+        transiton: .2s linear;
+  }
+  
+  html{
+      font-size: 62.5%;
+      overflow-x: hidden;
+      scroll-padding-top: 9rem;
+      scroll-behavior: smooth;
+  }
+  
+  
+  body{
+      background:black;
+  }
+  
+  .heading{
+      text-align: center;
+      color: #fff;
+      text-transform: uppercase;
+      padding-bottom: 3.5rem;
+      font-size: 4rem;
+  }
+  .heading span{
+      color: #fff;
+      text-transform: uppercase;
+  }
+  
+  .btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .9rem 3rem;
+    font-size: 1.7rem;
+    color: #000000;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  
+  .btn:hover{
+    letter-spacing: .2rem;
+  }
+  
+  .menu .heading{
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+  }
+  
+  .menu .filters_menu{
+    padding: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    list-style-type: none;
+    margin: 0 0 20px 0;
+  }
+  
+  .menu .filters_menu li {
+    font-size: 3rem;
+    color: white;
+    padding: 7px 25px;
+    cursor: pointer;
+    border-radius: 25px;
+  }
+  
+  .menu .filters_menu li:hover{
+    background: rgb(32, 180, 12);
+  }
+  
+  .menu .filters_menu li.active {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  
+  .menu .box-container{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      gap: 1.5rem;
+  }
+  
+  .menu .box-container .box{
+      color: rgb(255, 255, 255);
+      padding: 4rem;
+      text-align: center;
+      border: var(--border);
+  }
+  
+  
+  .menu .box-container .box img{
+      height: 15rem;
+  }
+  
+  .menu .box-container .box img h3{
+      color: rgb(0, 0, 0);
+      font-size: 2rem;
+      padding: 1rem 0;
+  }
+  
+  .menu .box-container .box .price{
+      color: white;
+      font-size: medium;
+      padding: 5rem 0;
+  }
+  
+  .menu .box-container .box:hover{
+      background: rgb(0, 0, 0);
+  }
+  
+  .menu .box-container .box:hover > a{
+      color: rgb(0, 0, 0);
+  }
+  
+  /* menu end */
+  
+  
+  /* about start */
+  
+  .about .row{
+      display: flex;
+      align-items: center;
+      background: black;
+      flex-wrap: wrap;
+  }
+  
+  .about .row .image{
+      flex: 1 1 45rem;
+  }
+  
+  .about .row .image img{
+      width: 90%;
+  }
+  
+  .about .row .content{
+      flex: 1 1 45rem;
+      padding: 2rem;
+  }
+  
+  .about .row .content p{
+      font-size: 3rem;
+      color: #ffffff;
+      padding: 1rem 0;
+      line-height: 1.8;
+  }
+  
+  /* about end */
+  
+  /* footer start */
+  
+  .footer {
+    font-family: "Roboto", sans-serif;
+  }
+  /* body {
+    overflow-x: hidden;
+  } */
+  .contact-section-header.links a{
+    text-decoration:none !important; 
+   color:rgb(0, 0, 0);
+  }
+  
+  /* .overflow-auto {
+  height:300px;
+  
+  } */
+  
+  
+  .contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding-bottom:10px;
+  background: black;
+  color:rgb(255, 255, 255);
+  
+  }
+  .contact-links {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 980px;
+  flex-wrap: wrap;
+  color: #000;
+  
+  }
+  
+  
+  .contact-details {
+  font-size: 1.4rem;
+  transition: transform 0.3s ease-out;
+  }
+  
+  .contact-details:hover {
+  transform: translateY(4px);
+  }
+  span{
+    
+    border-radius: 20px;
+    font-size: 18px;
+  }
+  /* img{
+   margin-left: -1000px;
+   margin-top: 25px;
+    
+  } */
+  /* .logo{
+    width: 200px;
+    height: px;
+    padding-bottom: 29px;
+    margin-left: -1000px;
+  } */
+  .links{
+    word-spacing: 20px;
+  }
+  
+  /* footer end */
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* .container {
+      width:100%;
+      height:600px;
+      text-align:center;
+      font-family: "Roboto", sans-serif;
+  }
+  .text {
+      padding-top: 50px;
+      margin-top:40px;
+      
+  }
+  .text h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: white;
+  }
+  .text p {
+      font-size: 18px;
+      color: white;
+      padding-top: 4px;
+  
+  }
+  .main {
+      width:90%;
+      height: 400px;
+      margin:50px 5%;
+      display:flex;
+      flex-direction: row;
+      flex-wrap:wrap;
+  }
+  .single {
+      width:33%;
+      height:100%;
+      text-align:center;
+      padding: 40px 20px;
+  }
+  .single i {
+      font-size: 45px;
+  }
+  .single p {
+      padding-top:40px;
+      color: white;
+      display:block;
+      line-height:180%;
+      font-size: 14px;
+  }
+  .single a {
+      text-decoration: none;
+      color: white;
+      font-size:18px;
+      font-weight:700;
+      width:45%;
+      height:55px;
+      line-height: 55px;
+      border: 2px solid white;
+      display:block;
+      border-radius: 5px;
+      margin: 40px auto;
+  }
+  footer {
+      width:100%;
+      height:600px;
+      background-color: rgba(0,0,0,0.9);
+      color: rgba(255,255,255,0.60);
+      text-align:center;
+  }
+  footer h1 {
+      font-size: 40px;
+      font-weight: bold;
+      color: rgba(255,255,255,0.9);
+      padding-top: 30px;
+  
+  }
+  footer p {
+      font-size: 19px;
+      padding-top: 4px;
+      word-spacing: 2px;
+  }
+  footer .txt {
+      display: inline-block;
+      width:78%;
+      height:86px;
+      margin-top: 70px;
+      font-weight: normal;
+      font-size:16px;
+      line-height: 180%;
+      color: rgba(255,255,255,0.8);
+  }
+  
+  footer a {
+      text-decoration: none;
+      font-size:18px;
+      color: rgba(255,255,255,1);
+      margin: 90px auto;
+      display: block;
+      font-weight: bold;
+      border: 2px solid rgba(255,255,255,1);
+      width: 18%;
+      height: 75px;
+      line-height: 75px;
+      text-align: center;
+      border-radius: 7px;
+  } */
+  
+  
+  /* menu page start */
+  
+  /* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poetsen+One&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+  
+  :root{
+      --main-color: #d3ad7f;
+      --black: #13131a;
+      --bg: #010103;
+      --border: .2rem solid rgba(255,255,255,.3);
+     } */
+  .checkbtn {
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+      display: none;
+    }
+    
+  #check {
+      display: none;
+    }
+  @media screen and (max-width: 620px) {
+      .header .logo {
+          font-size: 50px;
+          font-weight:800;
+          display: block;
+          text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0 5px rgb(56, 55, 55);
+          
+      }
+  
+  
+    .nav-menu .menu {
+      display:flex;
+      flex-direction: column;
+      width: 100%;
+  }
+  
+  .nav-menu .menu ul {
+      list-style:none;
+      display:flex;
+      flex-direction: column;
+      height:80%; 
+  }
+  .nav-menu .menu ul li a {
+      text-decoration:none;
+      color: rgb(255, 255, 255);
+      padding-top: 5px;
+      font-size:13px;
+      text-transform: uppercase;
+      line-height: 25px;
+      
+  }
+    .banner {
+      height: 100px;
+      width: 30%;
+      text-align: center;
+      margin: 13% auto;
+      font-family: "Roboto", sans-serif;
+     
+    }
+  
+    .menu .heading{
+      font-size: small;
+      color: white;
+      text-align: center;
+    }
+  .menu .filters_menu li {
+    font-size: small;
+    color: white;
+    padding: 3px 13px;
+    cursor: pointer;
+    border-radius: 11px;
+  }
+  .menu .box-container a{
+      font-size: small;
+  }
+  .about h1{
+      font-size: medium;
+  }
+  .about img{
+      width: 300px;
+      height: 250px;
+  }
+  .about .row .content p{
+      font-size: small;
+  }
+  .about .row .content a{
+      font-size: small;
+  }
+  .contact-section .contact-section-header .links span a{
+      font-size: x-small;
+    }
+  
+  .contact-section .contact-links a{
+      font-size: x-small;
+  }
+  .header background-image{
+      max-height: 200px;
+  }
+  
+  .menu .box-container{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 1.5rem;
+  }
+  
+  .menu .box-container .box{
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      border: var(--border);
+  }
+  
+  .menu .box-container .box img{
+      height: 7rem;
+  }
+  
+  .banner a {
+      text-decoration: none;
+      font-size:15px;
+      color: rgba(255,255,255,1);
+      margin: 55px auto;
+      display: block;
+      font-weight: bold;
+      border: 1px solid rgba(255,255,255,1);
+      width: 18%;
+      height: 45px;
+      line-height: 40px;
+      text-align: center;
+      border-radius: 5px;
+      background-color: #000000;
+  }
+  .footer1 h3{
+      font-size: small;
+  }
+  
+  
+  .checkbtn {
+      display: block;
+      order: 1;
+      margin-right: 20px;
+    }
+  
+    .header .nav-menu .menu ul {
+      position: fixed;
+      top: 35px;
+      left: -100%;
+      background-color: black;
+      width: 30%;
+      height: 50vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s;
+    }
+  
+    .header .nav-menu .menu ul li {
+      margin: 25px 0;
+    }
+  
+    .header .nav-menu .menu ul li a {
+      font-size: 12px;
+    }
+    .header .nav-menu .menu ul li .logo{
+      font-size: 12px;
+    }
+    #check:checked ~ ul {
+      left: 0;
+    }
+  
+  
+  }
+</style> 
+</head>
+<body style="background-color: black;">
+<!-- partial:index.partial.html -->
+<div class="header" style="background-image: url('{% static 'images/coffe1.jpg' %}');">
+        <div class="nav-menu">         
+            <div class="menu">
+              <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i class="fas fa-bars" style="font-size: 22px;margin-left:10px"></i>
+                </label>
+                <ul>
+                    <li><a href="" class="logo" style="pointer-events: none;color:rgba(104, 104, 105, 0.993);font-size:medium;">CAFETERIA</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="banner"> 
+            <h1>Coffee is a language in itself</h1>
+
+            <!--<a href="index.html" style="color:rgba(255, 255, 255, 0.74)">MENU</a>-->
+        </div>
+</div>
+
+<!-- partial -->
+  
+
+
+<!-- menu section start -->
+<br>
+<section class="menu" id="menu" style="background-color: black;">
+    <div class="container">
+    <div class="heading"> OUR MENU </div>
+      <div><ul class="filters_menu">
+        <li data-filter="*">All</li>
+        <li data-filter=".Veg">Veg</li>
+        <li data-filter=".NonVeg">Non-Veg</li>
+        <li data-filter=".Beverages">Beverages</li>
+        <li data-filter=".bakeri">bakery</li>
+      </ul></div>
+  
+  
+      <div class="box-container">
+        {% for caf in cafeteria %}  
+          <div class="box">
+              <img src="{{ caf.image_item.url }}"alt="">
+              <h3>Item : {{ caf.item_name }}</h3>
+              <div class="Price" style="font-size: medium;" >Price : {{ caf.amount }} Rs</div>
+              <a href="" class="btn">Order</a>
+          </div>
+          {% endfor %} 
+    </div>
+    </div>
+  
+  </section>
+  
+  
+  <!-- menu section end -->
+  
+
+
+  <!-- about page start -->
+  
+  <section class="about" id="about">
+    <br>
+    <h1 class="heading">ABOUT US </h1>
+<div class="row">
+    <div class="image">
+        <img src="{% static 'images/about.jpg' %}" alt="">
+    </div>
+    <div class="content">
+        <p>Food is everything we are. It's an extension of nationalist feeling, ethnic feeling, your personal history, your province, your region, your tribe, your grandma. It's inseparable from those from the get-go.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+
+</div>
+<br>
+
+</section>
+
+
+  <!-- about page end -->
+
+
+
+  <!-- footer start -->
+
+  
+    <footer id="contact" class="contact-section">
+
+         <!-- logo -->
+            <!-- <div>
+                <img src="klassy-logo.png">
+            </div> -->
+
+        </div>
+        <br>
+      <div class="contact-section-header">
+        <div class="links">
+           <span><a href=""style="color:gray;">HOME</a> | </span>
+           <span><a href=""style="color:gray;">MENU</a> | </span>
+           <span><a href=""style="color:gray;">STORE</a> | </span>
+           <span><a href=""style="color:gray;">LOCATIONS</a></span>
+        </div>
+        <br>
+        <div> 
+          <p class='h2' style="color: rgb(255, 255, 255);height: 26px;">Cafeteria</p>
+          <p class='h6'><em>Delicious Food.</em></p> 
+
+        </div>
+        <br>
+       
+      </div>
+       
+       <!-- icons -->
+       
+      <div class="contact-links">
+    
+        
+        <a
+          href="https://twitter.com/oxesasa"
+          target="_blank"
+          class="btn text-black contact-details"          
+          ><i class="fab fa-twitter"></i> Twitter</a>
+        <a
+          href="https://instagram.com/samara.srd"
+          target="_blank"
+          class="btn text-black contact-details"
+          ><i class="fa-brands fa-instagram"></i> Cafeteria</a>
+        <a href="mailto:sdfadigas@gmail.com" class="btn text-black contact-details" 
+          ><i class="fas fa-at"></i> Cafeteria</a >
+        <a href="https://wa.me/5548991077107" class="btn text-black contact-details"
+          ><i class="fa-brands fa-whatsapp"></i> Cafeteria</a
+        >
+      </div>
+      
+      </footer>
+      <!-- footer end 
+
+      <!-- base footer -->
+
+      <div class="footer1" style="background-color:rgb(0, 0, 0)">
+        <h3 style=" margin-left: 45%;">since@1990</h3>
+      </div>
+       
+      <!-- base footer end -->
+
+      
+   
+     
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+
+  <!-- footer end -->
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

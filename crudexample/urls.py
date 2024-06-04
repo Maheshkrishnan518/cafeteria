@@ -25,6 +25,7 @@ from cafeteria import views
 urlpatterns = [  
     path('admin/', admin.site.urls),  
     path('caf', views.caf),  
+    path('home', views.home), 
     path('show',views.show),  
     path('edit/<int:id>', views.edit),  
     path('update/<int:id>', views.update),  
