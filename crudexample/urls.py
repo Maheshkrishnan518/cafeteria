@@ -25,11 +25,32 @@ from cafeteria import views
 urlpatterns = [  
     path('admin/', admin.site.urls),  
     path('caf', views.caf),  
-    path('home', views.home), 
-    path('show',views.show),  
     path('edit/<int:id>', views.edit),  
     path('update/<int:id>', views.update),  
-    path('delete/<int:id>', views.destroy),  
+    path('delete/<int:id>', views.destroy),
+
+    path('user',views.index),
+    path('about',views.about),
+    path('contact',views.contact),
+    path('order',views.order),
+    # path('orderednow/<int:a>',views.orderednow),
+    path('additem',views.additem),
+    path('demiadd_items',views.demiadd_items),
+    path('add_to_cart/<int:d>',views.car),
+    path('viewcart',views.viewcart),
+    path('minuscart/<int:de>',views.minuscart),
+    path('pluscart/<int:de>',views.pluscart),
+    path('del_cart/<int:d>',views.del_cart),
+    path('placeorder',views.placeorder),
+    path('myorders',views.myorders),
+
+    path('',views.ad_login),
+    path('admin',views.admin),
+    path('ad_manage_menu',views.ad_menu),
+    path('ad_orders',views.ad_view_orders),
+    path('ad_reviews',views.ad_reviews),
+    path('ad_add',views.ad_add),
+   path('ad_logout',views.ad_logout),
 ]  
 
 if settings.DEBUG:  

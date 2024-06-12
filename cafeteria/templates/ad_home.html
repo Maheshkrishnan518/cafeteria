@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>sample</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+  </head>
+  <body>
+
+    <div class="heading1">
+      <h1>CAFETERIA</h1>
+    </div>
+
+    <div id="outer">
+        <div class="inner">
+          <a href="ad_manage_menu">
+          <!-- <form action="manage-menu.html"> -->
+            <button type="submit"> MANAGE MENU</button></div>
+          </a>
+          <!-- </form> -->
+          <br><br>
+        <div class="inner">
+          <!-- <form action="orders.html"> -->
+            <a href="ad_orders">
+              <button type="submit"> ORDERS</button></div>
+          	</a>
+          <!-- </form> -->
+          <br><br>
+        <div class="inner">
+          <a href="ad_reviews">
+          <!-- <form action="review.html"> -->
+            <button type="submit"> REVIEW</button></div>	
+          <!-- </form> -->
+         <br><br>
+        <div class="inner">
+          <!-- <form action="admin-login.html"> -->
+            <a href="ad_logout">
+            <button type="submit">LOGOUT</button></div>	
+            </a>
+          </form>
+       </div>
+       </div>
+       </div>  
+          <style>
+            body {
+                background-color: rgb(218, 175, 122);
+                /* background-image: url(bg.jpg); */
+                background-image: url('{% static "img/bg.jpg"%}');
+                background-size: 100%;
+            }
+          </style>
+  </body>
+</html>

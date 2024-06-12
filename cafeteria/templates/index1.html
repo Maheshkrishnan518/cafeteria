@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    {% load static %}
+  <meta charset="UTF-8">
+  <title>SAMPLE CAFERETIA</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/cart.css' %}" >
+  <link rel="stylesheet" href="{% static 'css/round_digit.css' %}" >
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap" rel="stylesheet">
+      
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="header">
+        <div class="nav-menu">
+            <div class="logo">CAFETERIA</div>
+            <div class="homemenu">
+              <nav>
+                <ul class="sidebar">
+                  <li onclick="closeSidebar()"><a href="#"><svg class="triple" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                  <li><a href="../user">Homepage</a></li>
+                  <li><a href="#menu">Menu</a></li>
+                  <li><a href="../about">About</a></li>
+                  <li><a href="../contact">Contact</a></li>
+                  <li class="hideOnMobile"><a class="navitems" href="../myorders">My Order</a></li>
+
+                  <!-- <i class="fas fa-times"></i> -->
+              </ul>
+              
+              <ul class="topbar">
+                <li class="hideOnMobile"><a class="navitems" href="../user" >Homepage</a></li>
+                <li class="hideOnMobile"><a class="navitems" href="#menu">Menu</a></li>
+                <li class="hideOnMobile"><a class="navitems" href="../about">About</a></li>
+                <li class="hideOnMobile"><a class="navitems" href="../contact">Contact</a></li>
+                
+                <div class="dropdown">
+                  
+                  <button onclick="myFunction()" class="dropbtn fa fa-shopping-cart"><div style="text-align:center">
+                    {% if count != 0 %}
+                    <span class="dot"><p style="font-size: 14px; font-weight: 600; font-style: normal; color: rgb(32, 32, 32);">{{count}}</p></span>
+                    {% endif %}
+                  </div></button>
+                  <div id="myDropdown" class="dropdown-content">
+                    {% for i in datas %}
+                    <div style="padding-left: 5px;padding-top: 5px; padding-bottom: 5px;"><img src="{{i.item_details.image_item.url}}" alt="" style="width: 50px;"><span style="font-size: 12px; color: black; margin-left: 20px;">{{i.item_details.item_name}}</span></div>
+                    {% endfor %}
+                    
+                    <div style="width:100%; text-align: center; background-color: rgb(236, 130, 10); font-size: 15px;"><a href="viewcart">View Cart</a></div>
+                  </div>
+                </div>
+                <li onclick="showSidebar()"><a href="#"><svg class="triple" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+              </ul>
+             </div>
+
+        </div>
+        <div class="banner">
+          <div class="content-banner"><h1>From Our Kitchen to Your Heart</h1>
+
+            <a href="#menu" style="color:rgba(255, 255, 255, 0.74)">MENU</a>
+          </div>
+            
+        </div>
+</div>
+<!-- partial -->
+  
+
+
+<!-- menu section start -->
+
+<section class="menu" id="menu">
+    <div class="container">
+    <div class="heading">
+      <h2> OUR MENU
+      </h2>
+    </div>
+  
+      <div class="filters_menu">
+        <button type="button" class="filters-btn" id="all">ALL</button>
+        <button type="button" class="filters-btn" id="veg">VEG</button>
+        <button type="button" class="filters-btn" id="non-veg">NON-VEG</button>
+        <button type="button" class="filters-btn" id="beverages">BEVERAGES</button>
+        <button type="button" class="filters-btn" id="bakeri">BAKERI</button>
+      </div>
+
+        {% for i in data %}
+      <div class="box-container">
+          <div class="box all beverages">
+              <img src="{{i.image_item.url}}" alt="">
+              <h3>
+                  {{i.item_name}}
+              </h3>
+              <div class="Price">
+                  ₹{{i.amount}}
+              </div>
+              {% if i in item%}
+              <p class="btn">GoTo Cart</p>
+              {% else %}
+              <a href="../add_to_cart/{{i.pk}}" class="btn">Order</a>
+              {% endif %}
+              </div>
+          </div>
+        {% endfor %}
+         </div>
+  
+   </section>
+  
+  
+  <!-- menu section end -->
+  
+
+
+  <!-- about page start -->
+  
+  <section class="about" id="about">
+    <h1 class="heading">ABOUT US </h1>
+<div class="row">
+    <div class="image">
+        <img src="{% static 'images/about.jpg' %}" alt="">
+    </div>
+    <div class="content">
+        <p>Food is everything we are. It's an extension of nationalist feeling, ethnic feeling, your personal history, your province, your region, your tribe, your grandma. It's inseparable from those from the get-go.</p>
+        <a href="#" class="btn">Learn More</a>
+    </div>
+
+</div>
+<br>
+
+</section>
+
+
+  <!-- about page end -->
+
+
+
+  <!-- footer start -->
+
+  
+    <footer id="contact" class="contact-section">
+
+         <!-- logo -->
+            <!-- <div>
+                <img src="klassy-logo.png">
+            </div> -->
+
+        </div>
+        <br>
+      <div class="contact-section-header">
+        <div class="linkz">
+           <span><a href="../index"style="color:gray;">HOME</a>  </span>
+           <span><a href="#menu"style="color:gray;">MENU</a>  </span>
+           <span><a href=""style="color:gray;">STORE</a> </span>
+           <span><a href=""style="color:gray;">LOCATIONS</a></span>
+        </div>
+        <br>
+        <div> 
+          <p class='h2' style="color: rgb(255, 255, 255);height: 26px;">Cafeteria</p>
+          <p class='h6'><em>Delicious Food.</em></p> 
+
+        </div>
+        <br>
+       
+      </div>
+       
+       <!-- icons -->
+       
+      <div class="contact-links">
+    
+        <div class="footerSocial">
+           <a
+          href="https://twitter.com/oxesasa"
+          target="_blank"
+          class="btn text-white contact-details"
+          ><i class="fab fa-twitter"></i> Twitter</a>
+        <a
+          href="https://instagram.com/samara.srd"
+          target="_blank"
+          class="btn text-white contact-details"
+          ><i class="fa-brands fa-instagram"></i> instagram</a>
+
+        <a href="mailto:sdfadigas@gmail.com" class="btn text-white contact-details" 
+          ><i class="fas fa-at"></i> Cafeteria</a >
+          
+        <a href="https://wa.me/5548991077107" class="btn text-white contact-details"
+          ><i class="fa-brands fa-whatsapp"></i> Whatsapp</a
+        >
+        </div>
+       
+      </div>
+      
+      </footer>
+      <!-- footer end -->
+
+      <!-- base footer -->
+
+      <!-- <div>
+        <br>
+        <h3 style=" margin-left: 45%;"><b>since@1990</b></h3>
+      </div> -->
+       
+      <!-- base footer end -->
+
+      
+   
+     
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+
+  <!-- footer end -->
+ 
+  
+<script src="{% static 'css/script.js' %}"></script>
+<script src="{% static 'css/cart.js' %}"></script>
+
+</body>
+</html>
